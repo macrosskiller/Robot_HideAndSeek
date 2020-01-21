@@ -1,0 +1,47 @@
+@startuml
+allowmixing
+
+title Architecture Overview of Robot_HideAndSeek
+
+package Detector {
+    interface InterfaceDetector {
+        + getDetectedObjects()
+    }
+
+    class ImageTreatment {
+
+    }
+
+    collections Detector
+
+    Detector -right-|> InterfaceDetector
+    ImageTreatment -up-> Detector
+}
+
+note "Pilotage du support" as NoteActuator1
+class Actuator << (S,#FF7700) Singleton >> {
+    - _angularPosition
+}
+Actuator .. NoteActuator1
+
+note "Responsable du menu et du main" as NoteBoss1
+class Boss << (S,#FF7700) Singleton >> {
+    + showMenu()
+}
+Boss .. NoteBoss1
+
+Boss -left-* Actuator
+Boss -right-* InterfaceDetector
+
+
+center footer La Légion Automatisée
+skinparam legendFontSize 5
+legend bottom left 
+This work is licensed under the Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International License.
+To view a copy of this license, visit
+http://creativecommons.org/licenses/by-nc-sa/4.0/
+or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+end legend  
+
+@enduml
