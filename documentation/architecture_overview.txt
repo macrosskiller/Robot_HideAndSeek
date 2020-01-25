@@ -24,14 +24,14 @@ class Actuator << (S,#FF7700) Singleton >> {
 }
 Actuator .. NoteActuator1
 
-note "Responsable du menu et du main" as NoteBoss1
-class Boss << (S,#FF7700) Singleton >> {
+note "Responsable du menu" as NoteMaster1
+class Master << (S,#FF7700) Singleton >> {
     + showMenu()
 }
-Boss .. NoteBoss1
+Master .. NoteBoss1
 
-Boss -left-* Actuator
-Boss -right-* InterfaceDetector
+Master -left-* Actuator
+Master -right-* InterfaceDetector
 
 
 center footer La Légion Automatisée
