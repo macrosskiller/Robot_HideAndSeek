@@ -8,6 +8,5 @@
 
 #include "Actuator.h"
 
-class Actuator {
-
-};
+Actuator::Actuator()
+{}

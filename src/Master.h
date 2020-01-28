@@ -7,7 +7,9 @@
 #ifndef MASTER_H
 #define MASTER_H
 
-class Master {
+class Master {
 public:
     Master();
 };
+
+#endif // MASTER_H
