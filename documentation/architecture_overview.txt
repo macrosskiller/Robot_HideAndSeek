@@ -5,7 +5,7 @@ title Architecture Overview of Robot_HideAndSeek
 
 package Detector {
     interface InterfaceDetector {
-        + getDetectedObjects()
+        + getDetectedObjects() : std::tuple<pair<int, int>, pair<int, int>, int>
     }
 
     class ImageTreatment {
@@ -28,7 +28,7 @@ note "Responsable du menu" as NoteMaster1
 class Master << (S,#FF7700) Singleton >> {
     + showMenu()
 }
-Master .. NoteBoss1
+Master .. NoteMaster1
 
 Master -left-* Actuator
 Master -right-* InterfaceDetector
