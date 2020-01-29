@@ -4,12 +4,14 @@
  *or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
  */
 
-#ifndef ACTUATOR_H
-#define ACTUATOR_H
+#ifndef BASICDETECTOR_H
+#define BASICDETECTOR_H
 
-class Actuator {
+#include "InterfaceDetector.h"
+
+class BasicDetector : public InterfaceDetector {
 public:
-    Actuator();
+    BasicDetector();
 };
 
-#endif // ACTUATOR_H
+#endif

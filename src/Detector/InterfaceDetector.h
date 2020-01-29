@@ -4,12 +4,13 @@
  *or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
  */
 
-#ifndef ACTUATOR_H
-#define ACTUATOR_H
+#ifndef INTERFACEDETECTOR_H
+#define INTERFACEDETECTOR_H
 
-class Actuator {
+class InterfaceDetector
+{
 public:
-    Actuator();
-};
+    virtual std::tuple<pair<int, int>, pair<int, int>, int> getDetectedObjects() override;
+}
 
-#endif // ACTUATOR_H
+#endif // INTERFACEDETECTOR_H

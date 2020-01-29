@@ -9,6 +9,6 @@
 #include "Actuator.h"
 #include "Master.h"
 
-class Master {
-    Master()
-};
+Master::Master()
+{
+}
