@@ -18,11 +18,39 @@ package Detector {
     ImageTreatment -up-> Detector
 }
 
-note "Pilotage du support" as NoteActuator1
-class Actuator << (S,#FF7700) Singleton >> {
-    - _angularPosition
+package Actuator {
+	note "Pilotage du support" as NoteActuator1
+	class Actuator << (S,#FF7700) Singleton >> {
+		- int _angleServo1
+		- int _angleServo2
+		- int _cameraWidth
+		- int _cameraHeight
+		- int _positionX
+		- int _positionY
+		- ServoDriver _driver
+
+		+ Actuator(int cameraWidth, int cameraHeight)
+		+ Actuator()
+		+ ~Actuator()
+		+ void setCameraParameters(int cameraWidth, int cameraHeight)
+		+ void goTo(int x, int y)
+		+ void reset()
+		+ std::pair<int, int> getCurrentPosition()
+		+ std::pair<int, int> getCurrentAngle()
+		- int _convertToAngle(int position)
+		- int _convertToPosition(int angle)
+	}
+	Actuator .. NoteActuator1
+	
+	component LibPCA9685
+	Actuator --> LibPCA9685
+	node I2C
+	node Servo1
+	node Servo2
+	LibPCA9685 -- I2C
+	I2C -- Servo1
+	I2C -- Servo2
 }
-Actuator .. NoteActuator1
 
 note "Responsable du menu" as NoteMaster1
 class Master << (S,#FF7700) Singleton >> {

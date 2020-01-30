@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-#include "Actuator.h"
+#include "Actuator/Actuator.h"
 #include "Master.h"
 
 Master::Master()

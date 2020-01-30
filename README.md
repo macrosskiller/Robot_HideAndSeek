@@ -20,3 +20,6 @@ Matériel nécessaire :
 - support mécanique
 - alimentation externe pour le(s) servomoteur(s)
 - objets à détecter
+
+Package à installer :
+libi2c-dev
